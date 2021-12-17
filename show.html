@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>show</title>
+</head>
+<body>
+			<div>
+				<img src="" id="imgshow">
+				<div>
+				<p id="para"></p>
+				<img src="" id="imgScr">
+				</div>
+			</div>
+
+
+	<div>
+		<script type="text/javascript">
+			
+			let show = localStorage.getItem("cartBank");
+			show = JSON.parse(show);
+
+			//let showhow = show[2];
+			//console.log(showhow);	
+			let table_cart = `<table class = 'table'>
+									<thead>
+										<tr>
+											<th> ITEMS </th>
+										 </tr>
+									</thead>
+									<tbody>`;
+
+
+			show.forEach((shows)=>{
+				let show_name = shows.product_name;
+				let show_image = shows.product_image;
+
+				console.log(show_name);
+				console.log(show_image);
+
+
+				table_cart += `<tr>
+								<td>${show_name} 
+								<img src="${show_image}">
+								<button onclick = 'remove()'>Remove item</button>
+								</td>
+
+
+								</tr>`
+					//console.log(shows);
+
+				//document.querySelector('#para').innerHTML =shows.product_name;
+				//document.querySelector('#imgshow').src = shows.product_image;
+
+
+
+			});
+			table_cart+= `</tbody></table>`;
+
+			document.getElementById("para").innerHTML = table_cart;
+			//document.querySelector("#imgSrc").toDataURL("table_cart") ;
+
+
+
+			function remove(){
+
+				
+				let removeItem = localStorage.getItem("cartBank");
+				removeItem = JSON.parse(removeItem);
+				//console.log(removeItem);
+
+				removeItem.forEach((items)=>{
+
+					console.log(items);
+					/*let name = items.product_name;
+					let images = items.product_image;
+
+					console.log(name);
+					console.log(images);*/
+					
+
+				})
+
+
+
+			}
+
+		</script>
+	</div>
+
+</body>
+</html>		
