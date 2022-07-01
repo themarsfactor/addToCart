@@ -18,8 +18,8 @@
 	<div>
 		<script type="text/javascript">
 			
-			let show = localStorage.getItem("cartBank");
-			show = JSON.parse(show);
+			let shows = localStorage.getItem("cartBank");
+			shows = JSON.parse(shows);
 
 			//let showhow = show[2];
 			//console.log(showhow);	
@@ -32,18 +32,19 @@
 									<tbody>`;
 
 
-			show.forEach((shows)=>{
-				let show_name = shows.product_name;
-				let show_image = shows.product_image;
+			shows.forEach((show)=>{
+				let show_name = show.product_name;
+				let show_image = show.product_image;
+				let show_id = show.id;
 
-				console.log(show_name);
-				console.log(show_image);
+				//console.log(show_name);
+				//console.log(show_image);
 
 
 				table_cart += `<tr>
 								<td>${show_name} 
 								<img src="${show_image}">
-								<button onclick = 'remove()'>Remove item</button>
+								<button onclick = "remove('${show_id}')">Remove item</button>
 								</td>
 
 
@@ -63,16 +64,25 @@
 
 
 
-			function remove(){
+			function remove(show_id){
 
 				
 				let removeItem = localStorage.getItem("cartBank");
 				removeItem = JSON.parse(removeItem);
-				//console.log(removeItem);
+				console.log(removeItem);
 
-				removeItem.forEach((items)=>{
+				removeItem.forEach((item)=>{
 
-					console.log(items);
+					//console.log(items);
+					if (item.id == show_id) {
+
+						
+					}
+
+
+					//items.pop();
+
+					//console.log(items);
 					/*let name = items.product_name;
 					let images = items.product_image;
 

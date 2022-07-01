@@ -13,7 +13,7 @@ window.addEventListener('load', function(){
 
 
 
-const btns = document.querySelectorAll('#btns');
+const btns = document.querySelectorAll('#btn');
 //console.log(btns);	
 
 	/*let dad = btns.parentNode;
@@ -36,11 +36,12 @@ btns.forEach((btn) => {
 	
 		let product = {
 			'product_name' : productName, 
-			'product_image' : imgSrc
+			'product_image' : imgSrc, 
+			'id' : new Date().getTime()
 		}
 
 
-		let storedCartItems = getStoredCartItems();
+		let storedCartItems = getStoredCartItems();																		
 
 
 		storedCartItems.push(product);
